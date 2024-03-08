@@ -2,5 +2,9 @@
 
 public class Cat : Mammal
 {
-    int _price = 300;
+    public Cat()
+    {
+     AddToPrice(500);
+
+    }
 }

@@ -2,6 +2,9 @@
 
 public class Mammal : Pet
 {
-   int _ageMax = 13;
-    
+   public Mammal()
+   {
+    AddToAgeMax(13);
+   }
+
 }
