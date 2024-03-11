@@ -5,40 +5,40 @@ namespace SpelMedDjur;
 public class Pet
 {
     //Variables ------------------------------------------------------------------------
-    protected string _name = "";
+    protected string Name = "";
 
-    protected int _age;
+    protected int Age;
 
-    protected int _ageMax = 0;
+    protected int AgeMax = 0;
 
-    protected int _price = 0;
+    protected int Price = 0;
 
-    protected bool _isFemale = true;
-    private List<string> pronouns = new();
-    protected string _gender = "female";
+    protected bool IsFemale = true;
+    private List<string> _pronouns = new();
+    protected string Gender = "female";
 
 
-    private List<string> PossibleNames = new() {"Fjant", "Floor", "2% Milk", "Snowflake", "Boomqueefa", "Schartzmugel", "Laqueesh", "Buddy", "Bob",};
+    private List<string> _possibleNames = new() {"Fjant", "Floor", "2% Milk", "Snowflake", "Boomqueefa", "Schartzmugel", "Laqueesh", "Buddy", "Bob",};
     
 
     // Get or set or add ------------------------------------------------------------------------
-    public void AddToPrice(int amount) { _price += amount; }
+    public void AddToPrice(int amount) { Price += amount; }
 
-    public void SetName(string name) { _name = name; }
+    public void SetName(string name) { Name = name; }
 
-    public string GetName() { return _name; }
+    public string GetName() { return Name; }
 
-    public void SetAge(int age) { _age = age; }
+    public void SetAge(int age) { Age = age; }
 
-    public int GetAge() { return _age; }
+    public int GetAge() { return Age; }
 
-    public void AddToAgeMax (int amount) { _ageMax += amount; }
+    public void AddToAgeMax (int amount) { AgeMax += amount; }
 
-    public int GetPrice() { return _price; }
+    public int GetPrice() { return Price; }
 
    public void AddToPossibleNames(List<string> newnames) {  
 
-    PossibleNames.AddRange(newnames);
+    _possibleNames.AddRange(newnames);
    }
 
 
@@ -47,25 +47,27 @@ public class Pet
     {
 
       //Decide gender
-      _isFemale = Random.Shared.Next(2) == 0;
-      if (_isFemale == false)
+      IsFemale = Random.Shared.Next(2) == 0;
+      if (IsFemale == false)
       {
         AddToPossibleNames(new List<string> {"Herbert", "Stinkboy", "Hågbert", "Göran"});
-        _gender = "male";
-        pronouns.Add("he");
-        pronouns.Add("his");
+        Gender = "male";
+        _pronouns.Add("he");
+        _pronouns.Add("his");
       }
       else
       {
         AddToPossibleNames(new List<string> {"Anna", "Greta", "Britta", "Sweetie"});
-        pronouns.Add("she");
-        pronouns.Add("her");
+        _pronouns.Add("she");
+        _pronouns.Add("her");
       }
 
-     int i = Random.Shared.Next(PossibleNames.Count);
-     SetName(PossibleNames[i]);
+     int i = Random.Shared.Next(_possibleNames.Count);
+     SetName(_possibleNames[i]);
 
-     Console.WriteLine($"Your pet name is{_name}  {pronouns} {_gender}");
+     Console.WriteLine($"Your pet name is {Name}, {_pronouns[0]} is a {Gender}. {_pronouns[0]} costs {Price}");
+
+     
     }
 
     public void Adopt()
