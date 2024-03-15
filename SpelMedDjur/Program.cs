@@ -1,7 +1,7 @@
 ﻿using SpelMedDjur;
 
-int i = Random.Shared.Next(4);
-if (i == )
+Pet f = GeneratePet.PetGenerate();
+f.Adopt();
 
-Pet p = new MaineCoon();
+
 Console.ReadLine();

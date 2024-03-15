@@ -14,10 +14,10 @@ public class Pet
     protected int Price = 0;
 
     protected bool IsFemale = true;
-    private List<string> _pronouns = new();
+    private Queue<string> _pronouns = new();
     protected string Gender = "female";
 
-
+    public List<string> Species = new();
     private List<string> _possibleNames = new() {"Fjant", "Floor", "2% Milk", "Snowflake", "Boomqueefa", "Schartzmugel", "Laqueesh", "Buddy", "Bob",};
     
 
@@ -64,15 +64,15 @@ public class Pet
 
      int i = Random.Shared.Next(_possibleNames.Count);
      SetName(_possibleNames[i]);
-
-     Console.WriteLine($"Your pet name is {Name}, {_pronouns[0]} is a {Gender}. {_pronouns[0]} costs {Price}");
-
      
     }
 
+
+
     public void Adopt()
     {
-      
+      Console.WriteLine($"Your pet name is {Name}, {_pronouns[0]} is a {Gender}. {_pronouns[0]} costs {Price}");
+      Console.WriteLine($"{Name} is a {Species[0]} {Species[1]} breed {Species[2]}");
     }
 
 
