@@ -14,7 +14,7 @@ public class Pet
     protected int Price = 0;
 
     protected bool IsFemale = true;
-    private Queue<string> _pronouns = new();
+    private List<string> _pronouns = new();
     protected string Gender = "female";
 
     public List<string> Species = new();
