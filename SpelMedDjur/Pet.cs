@@ -63,8 +63,7 @@ public class Pet
       }
 
      int i = Random.Shared.Next(_possibleNames.Count);
-     SetName(_possibleNames[i]);
-     
+     SetName(_possibleNames[i]);     
     }
 
 
