@@ -5,6 +5,7 @@ public class Turtle : Reptile
     public Turtle()
     {
         Species.Add("turtle");
+        AddToAgeMax(40);
         Wares.Add(new Ware() {Name = "turtle", Price = 500});
         Wares.Add(new Ware() {Name = "basking lamp", Price = 414});
         Wares.Add(new Ware() {Name = "food", Price = 169});

@@ -1,4 +1,6 @@
-﻿namespace SpelMedDjur;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace SpelMedDjur;
 
 public class GeneratePet
 {
@@ -41,5 +43,7 @@ public class GeneratePet
     Pet p = new CornSnake();
     return p;
     }
+    
     }
+
 }

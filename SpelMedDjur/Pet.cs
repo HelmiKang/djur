@@ -17,6 +17,8 @@ public class Pet
     private List<string> _pronouns = new();
     protected string Gender = "female";
 
+    protected HashSet<Ware> Wares = new();
+
     public List<string> Species = new();
     private List<string> _possibleNames = new() {"Fjant", "Floor", "2% Milk", "Snowflake", "Boomqueefa", "Schartzmugel", "Laqueesh", "Buddy", "Bob",};
     
@@ -37,6 +39,7 @@ public class Pet
     public int GetPrice() { return Price; }
 
    public void AddToPossibleNames(List<string> newnames) {  
+
 
     _possibleNames.AddRange(newnames);
    }
@@ -62,37 +65,42 @@ public class Pet
         _pronouns.Add("her");
       }
 
+      // decide name
      int i = Random.Shared.Next(_possibleNames.Count);
-     SetName(_possibleNames[i]);     
+     SetName(_possibleNames[i]);  
+
     }
 
 
+    // skriver ut information om en pet
+    public void GetInfo()
+    {
+      Console.WriteLine($"{Name} is a {Species[2]} {Species[1]} , {_pronouns[0]} is a {Gender}.");
+    }
 
+    // Skriver att man har adopterat ett djur
     public void Adopt()
     {
-      Console.WriteLine($"Your pet name is {Name}, {_pronouns[0]} is a {Gender}. {_pronouns[0]} costs {Price}");
-      Console.WriteLine($"{Name} is a {Species[0]} {Species[1]} breed {Species[2]}");
+      int age = Random.Shared.Next(1, AgeMax);
+      SetAge(age);
+      Console.WriteLine($"You have adopted {Name}");
+      Console.WriteLine($"{Name} is {Age} years old, {Species[2]}s can live to be {AgeMax} years old.");
     }
 
 
+    // skriver ut ens shopping list, priser och totala värde
+  public void WriteShoppingList()
+  {
+    Console.WriteLine("List of things you need to buy:");
+    foreach(var val in Wares)
+        {
+            Console.WriteLine($"{val.Name} {val.Price} :-");
+            Price += val.Price;
+        }
+    Console.WriteLine(" ");
+    Console.WriteLine($"Your shopping total: {Price} :-");
 
-    //Actions ------------------------------------------------------------------------
-     public virtual void Idle()
-    {
-        Console.WriteLine("Idle");
-    }
-
-      public virtual void Feed()
-    {
-        Console.WriteLine("Feed");
-    }
-
-      public virtual void Sleep()
-    {
-        Console.WriteLine("Sleep");
-    }
-
-
+  }
 
 
 

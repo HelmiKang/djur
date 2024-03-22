@@ -5,6 +5,7 @@ public class CornSnake : Reptile
     public CornSnake()
     {
         Species.Add("corn snake");
+        AddToAgeMax(7);
         Wares.Add(new Ware() {Name = "corn snake", Price = 1000});
         Wares.Add(new Ware() {Name = "substrate", Price = 69});
         Wares.Add(new Ware() {Name = "waterbowl", Price = 29});

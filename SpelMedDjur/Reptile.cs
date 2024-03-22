@@ -11,6 +11,5 @@ public class Reptile : CagedAnimal
         Wares.Add(new Ware() {Name = "thermometer", Price = 69});
         Wares.Add(new Ware() {Name = "heat mat", Price = 249});
         Wares.Add(new Ware() {Name = "decoration", Price = 689});
-
     }
 }

@@ -2,8 +2,6 @@
 
 public class Mammal : Pet
 {
-   protected HashSet<Ware> Wares = new();
-
    public Mammal()
    {
    Species.Add("mammal");
