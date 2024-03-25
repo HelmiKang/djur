@@ -5,9 +5,10 @@ namespace SpelMedDjur;
 public class Pet
 {
     //Variables ------------------------------------------------------------------------
-    protected string Name = "";
+    public string Name { get; init; }
 
-    protected int Age;
+
+    public int Age { get; protected set; }
 
     protected int AgeMax = 0;
 
@@ -19,29 +20,20 @@ public class Pet
 
     protected HashSet<Ware> Wares = new();
 
-    public List<string> Species = new();
+    protected List<string> Species {get; set; } = new();
     private List<string> _possibleNames = new() {"Fjant", "Floor", "2% Milk", "Snowflake", "Boomqueefa", "Schartzmugel", "Laqueesh", "Buddy", "Bob",};
     
 
     // Get or set or add ------------------------------------------------------------------------
     public void AddToPrice(int amount) { Price += amount; }
-
-    public void SetName(string name) { Name = name; }
-
-    public string GetName() { return Name; }
-
-    public void SetAge(int age) { Age = age; }
-
-    public int GetAge() { return Age; }
-
     public void AddToAgeMax (int amount) { AgeMax += amount; }
 
     public int GetPrice() { return Price; }
 
-   public void AddToPossibleNames(List<string> newnames) {  
+   public void AddToPossibleNames(List<string> newNames) {  
 
 
-    _possibleNames.AddRange(newnames);
+    _possibleNames.AddRange(newNames);
    }
 
 
@@ -67,7 +59,7 @@ public class Pet
 
       // decide name
      int i = Random.Shared.Next(_possibleNames.Count);
-     SetName(_possibleNames[i]);  
+     Name=_possibleNames[i];  
 
     }
 
@@ -82,7 +74,7 @@ public class Pet
     public void Adopt()
     {
       int age = Random.Shared.Next(1, AgeMax);
-      SetAge(age);
+      Age = age;
       Console.WriteLine($"You have adopted {Name}");
       Console.WriteLine($"{Name} is {Age} years old, {Species[2]}s can live to be {AgeMax} years old.");
     }
@@ -95,7 +87,7 @@ public class Pet
     foreach(var val in Wares)
         {
             Console.WriteLine($"{val.Name} {val.Price} :-");
-            Price += val.Price;
+            AddToPrice(val.Price);
         }
     Console.WriteLine(" ");
     Console.WriteLine($"Your shopping total: {Price} :-");
