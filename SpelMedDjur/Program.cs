@@ -1,5 +1,5 @@
 ﻿using SpelMedDjur;
 
-Game.StartingSequence();
+Game.GameSequence();
 
 Console.ReadLine();

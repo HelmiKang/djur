@@ -2,7 +2,7 @@
 
 public class Game
 {
-    public static Pet StartingSequence()
+    public static Pet GameSequence()
     {
     bool rightInput = true;
 
